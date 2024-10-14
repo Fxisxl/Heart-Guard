@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Heart, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -57,9 +58,11 @@ export default function Home() {
               </Link>
             </div>
             <div className="md:w-1/2 mt-8 md:mt-0">
-              <img
+              <Image
                 src="https://a.storyblok.com/f/219851/920x730/128e7d012f/example-of-ai-in-healthcare.webp"
                 alt="Heart Health"
+                width={200}
+                height={100}
                 className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
