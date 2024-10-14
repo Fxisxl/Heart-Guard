@@ -1,9 +1,10 @@
-import func
+from .func import predict as model_predict
+# import func
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 # import random
 import uvicorn
-from features import parameter
+from .features import parameter
 import numpy as np
 
 
@@ -48,11 +49,9 @@ async def predict(data:parameter):
 
     input_data = (age,sex ,cp, trestbps, chol, fbs, restecg, thalach, exang ,oldpeak, slope, ca, thal)
 
-    # input_data_as_numpy_array= np.asarray(input_data)
+    
 
-    # input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
-
-    response = func.predict(input_data)
+    response = await model_predict(*input_data)
     # print(response)
 
     return response
