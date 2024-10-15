@@ -32,29 +32,33 @@ app.add_middleware(
 
 @app.post('/api/predict')
 async def predict(data:parameter):
-    data  = data.model_dump()
-    age = data['age'] 
-    sex = data['sex'] 
-    cp = data['cp'] 
-    trestbps = data['trestbps'] 
-    chol = data['chol'] 
-    fbs = data['fbs'] 
-    restecg = data['restecg'] 
-    thalach = data['thalach'] 
-    exang = data['exang'] 
-    oldpeak = data['oldpeak'] 
-    slope = data['slope'] 
-    ca = data['ca'] 
-    thal = data['thal'] 
+    try:
+        data  = data.model_dump()
+        age = data['age'] 
+        sex = data['sex'] 
+        cp = data['cp'] 
+        trestbps = data['trestbps'] 
+        chol = data['chol'] 
+        fbs = data['fbs'] 
+        restecg = data['restecg'] 
+        thalach = data['thalach'] 
+        exang = data['exang'] 
+        oldpeak = data['oldpeak'] 
+        slope = data['slope'] 
+        ca = data['ca'] 
+        thal = data['thal'] 
 
-    input_data = (age,sex ,cp, trestbps, chol, fbs, restecg, thalach, exang ,oldpeak, slope, ca, thal)
+        input_data = (age,sex ,cp, trestbps, chol, fbs, restecg, thalach, exang ,oldpeak, slope, ca, thal)
 
+        
+
+        response = await model_predict(*input_data)
+        # print(response)
+
+        return response
     
-
-    response = await model_predict(*input_data)
-    # print(response)
-
-    return response
+    except Exception as e:
+        return {"error": str(e)}
 
     
 # if __name__ == '__main__':

@@ -1,8 +1,11 @@
 import asyncio
 import numpy as np
+import os
+
+model_path = os.path.join(os.path.dirname(__file__), 'heart_disease.pkl')
 
 import pickle
-with open('api\\heart_disease.pkl', 'rb') as file:
+with open(model_path, 'rb') as file:
     loaded_model = pickle.load(file)
 
 
