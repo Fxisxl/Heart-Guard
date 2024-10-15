@@ -4,9 +4,9 @@ import os
 
 model_path = os.path.join(os.path.dirname(__file__), 'heart_disease.pkl')
 
-import pickle
+import joblib
 with open(model_path, 'rb') as file:
-    loaded_model = pickle.load(file)
+    loaded_model = joblib.load(file)
 
 
 # predictions = loaded_model.predict()
