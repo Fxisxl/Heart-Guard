@@ -20,7 +20,7 @@ export default function Demo() {
     });
 
     try {
-      const response = await axios.post("http://localhost:3000/api/predict", {
+      const response = await axios.post("http://localhost:8000/api/predict", {
         age: formValues.age,
         sex: formValues.gender,
         cp: formValues.cp,
