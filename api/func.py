@@ -24,7 +24,7 @@ async def predict (age,sex ,cp, trestbps, chol, fbs, restecg, thalach, exang ,ol
 
     # prediction = loaded_model.predict(input_data_reshaped)
     # # print(prediction)
-    loop = asyncio.get_event_loop()
+    loop = asyncio.get_running_loop()
     prediction = await loop.run_in_executor(None, loaded_model.predict, input_data_reshaped)
 
     if (prediction[0]== 0):
